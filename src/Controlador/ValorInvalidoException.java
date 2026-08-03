@@ -8,6 +8,16 @@ package Controlador;
  *
  * @author josea
  */
-public class ValorInvalidoException {
-    
+public class ValorInvalidoException extends Exception {
+
+    public ValorInvalidoException() {
+        super("El valor ingresado no es válido.");
+    }
+
+    public ValorInvalidoException(String mensaje) {
+        super(mensaje);
+    }
+
 }
+    
+
