@@ -4,22 +4,19 @@
  */
 package Controlador;
 
-import Modelo.Calculadora;
-
 /**
  *
  * @author josea
  */
-public class ValorInvalidoException extends Exception {
+public class DivisionPorCeroException extends Exception {
 
-    public ValorInvalidoException() {
-        super("El valor ingresado no es válido.");
+    public DivisionPorCeroException() {
+        super("No se puede dividir entre cero.");
     }
 
-    public ValorInvalidoException(String mensaje) {
+    public DivisionPorCeroException(String mensaje) {
         super(mensaje);
     }
+
 }
-
-
 
