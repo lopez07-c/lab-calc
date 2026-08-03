@@ -294,7 +294,7 @@ private void guardarOperacion(char operacion){
     }//GEN-LAST:event_btnRestaActionPerformed
 
     private void btnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacionActionPerformed
-          guardarOperacion('×');
+          guardarOperacion('*');
     }//GEN-LAST:event_btnMultiplicacionActionPerformed
 
     private void btnDivision17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivision17ActionPerformed
