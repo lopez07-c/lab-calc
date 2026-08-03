@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Modelo;
+import Controlador.ValorInvalidoException;
 
 /**
  *
@@ -38,6 +39,46 @@ public class Calculadora {
     }
 
     
-    
-   
+     public void validarNumero(double numero) throws ValorInvalidoException {
+
+        if (Double.isNaN(numero)) {
+            throw new ValorInvalidoException("El número ingresado es NaN.");
+        }
+
+        if (Double.isInfinite(numero)) {
+            throw new ValorInvalidoException("El número ingresado es infinito.");
+        }
+    }
+
+    public double sumar(double a, double b) throws ValorInvalidoException {
+        validarNumero(a);
+        validarNumero(b);
+        return a + b;
+    }
+
+    public double restar(double a, double b) throws ValorInvalidoException {
+        validarNumero(a);
+        validarNumero(b);
+        return a - b;
+    }
+
+    public double multiplicar(double a, double b) throws ValorInvalidoException {
+        validarNumero(a);
+        validarNumero(b);
+        return a * b;
+    }
+
+    public double dividir(double a, double b) throws ValorInvalidoException {
+
+        validarNumero(a);
+        validarNumero(b);
+
+        if (b == 0) {
+            throw new ValorInvalidoException("No se puede dividir entre cero.");
+        }
+
+        return a / b;
+    }
 }
+   
+
