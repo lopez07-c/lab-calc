@@ -94,109 +94,149 @@ private void guardarOperacion(char operacion){
 
         jPanel2.setLayout(new java.awt.GridLayout(5, 4, 5, 5));
 
+        btnCE.setBackground(new java.awt.Color(0, 102, 102));
+        btnCE.setForeground(new java.awt.Color(0, 0, 0));
         btnCE.setText("CE");
         btnCE.addActionListener(this::btnCEActionPerformed);
         jPanel2.add(btnCE);
 
+        btnAC1.setBackground(new java.awt.Color(0, 102, 102));
+        btnAC1.setForeground(new java.awt.Color(0, 0, 0));
         btnAC1.setText("AC");
         btnAC1.addActionListener(this::btnAC1ActionPerformed);
         jPanel2.add(btnAC1);
 
+        btnBorrar.setBackground(new java.awt.Color(0, 102, 102));
+        btnBorrar.setForeground(new java.awt.Color(0, 0, 0));
         btnBorrar.setText(" ⌫");
         btnBorrar.addActionListener(this::btnBorrarActionPerformed);
         jPanel2.add(btnBorrar);
 
+        btnDivision17.setBackground(new java.awt.Color(0, 102, 102));
         btnDivision17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnDivision17.setForeground(new java.awt.Color(0, 0, 0));
         btnDivision17.setText("÷ ");
         btnDivision17.addActionListener(this::btnDivision17ActionPerformed);
         jPanel2.add(btnDivision17);
 
+        btn7.setBackground(new java.awt.Color(255, 255, 255));
         btn7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn7.setForeground(new java.awt.Color(0, 0, 0));
         btn7.setText("7");
         btn7.addActionListener(this::btn7ActionPerformed);
         jPanel2.add(btn7);
 
+        btn8.setBackground(new java.awt.Color(255, 255, 255));
         btn8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn8.setForeground(new java.awt.Color(0, 0, 0));
         btn8.setText("8");
         btn8.addActionListener(this::btn8ActionPerformed);
         jPanel2.add(btn8);
 
+        btn9.setBackground(new java.awt.Color(255, 255, 255));
         btn9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn9.setForeground(new java.awt.Color(0, 0, 0));
         btn9.setText("9");
         btn9.addActionListener(this::btn9ActionPerformed);
         jPanel2.add(btn9);
 
+        btnResta.setBackground(new java.awt.Color(0, 102, 102));
         btnResta.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResta.setForeground(new java.awt.Color(0, 0, 0));
         btnResta.setText("-");
         btnResta.addActionListener(this::btnRestaActionPerformed);
         jPanel2.add(btnResta);
 
+        btn4.setBackground(new java.awt.Color(255, 255, 255));
         btn4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn4.setForeground(new java.awt.Color(0, 0, 0));
         btn4.setText("4");
         btn4.addActionListener(this::btn4ActionPerformed);
         jPanel2.add(btn4);
 
+        btn5.setBackground(new java.awt.Color(255, 255, 255));
         btn5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn5.setForeground(new java.awt.Color(0, 0, 0));
         btn5.setText("5");
         btn5.addActionListener(this::btn5ActionPerformed);
         jPanel2.add(btn5);
 
+        btn6.setBackground(new java.awt.Color(255, 255, 255));
         btn6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn6.setForeground(new java.awt.Color(0, 0, 0));
         btn6.setText("6");
         btn6.addActionListener(this::btn6ActionPerformed);
         jPanel2.add(btn6);
 
+        btnMultiplicacion.setBackground(new java.awt.Color(0, 102, 102));
         btnMultiplicacion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnMultiplicacion.setForeground(new java.awt.Color(0, 0, 0));
         btnMultiplicacion.setText("×");
         btnMultiplicacion.addActionListener(this::btnMultiplicacionActionPerformed);
         jPanel2.add(btnMultiplicacion);
 
+        btn1.setBackground(new java.awt.Color(255, 255, 255));
         btn1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn1.setForeground(new java.awt.Color(0, 0, 0));
         btn1.setText("1");
         btn1.addActionListener(this::btn1ActionPerformed);
         jPanel2.add(btn1);
 
+        btn2.setBackground(new java.awt.Color(255, 255, 255));
         btn2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn2.setForeground(new java.awt.Color(0, 0, 0));
         btn2.setText("2");
         btn2.addActionListener(this::btn2ActionPerformed);
         jPanel2.add(btn2);
 
+        btn3.setBackground(new java.awt.Color(255, 255, 255));
         btn3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn3.setForeground(new java.awt.Color(0, 0, 0));
         btn3.setText("3");
         btn3.addActionListener(this::btn3ActionPerformed);
         jPanel2.add(btn3);
 
+        btnSuma.setBackground(new java.awt.Color(0, 102, 102));
         btnSuma.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSuma.setForeground(new java.awt.Color(0, 0, 0));
         btnSuma.setText("+");
         btnSuma.addActionListener(this::btnSumaActionPerformed);
         jPanel2.add(btnSuma);
 
+        btnSigno.setBackground(new java.awt.Color(0, 102, 102));
         btnSigno.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSigno.setForeground(new java.awt.Color(0, 0, 0));
         btnSigno.setText("+/-");
         btnSigno.addActionListener(this::btnSignoActionPerformed);
         jPanel2.add(btnSigno);
 
+        btn0.setBackground(new java.awt.Color(255, 255, 255));
         btn0.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn0.setForeground(new java.awt.Color(0, 0, 0));
         btn0.setText("0");
         btn0.addActionListener(this::btn0ActionPerformed);
         jPanel2.add(btn0);
 
+        btnPunto.setBackground(new java.awt.Color(0, 102, 102));
         btnPunto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnPunto.setForeground(new java.awt.Color(0, 0, 0));
         btnPunto.setText(".");
         btnPunto.addActionListener(this::btnPuntoActionPerformed);
         jPanel2.add(btnPunto);
 
+        btnIgual.setBackground(new java.awt.Color(0, 102, 102));
         btnIgual.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnIgual.setForeground(new java.awt.Color(0, 0, 0));
         btnIgual.setText("=");
         btnIgual.addActionListener(this::btnIgualActionPerformed);
         jPanel2.add(btnIgual);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblOperacion.setBackground(new java.awt.Color(255, 255, 255));
+        lblOperacion.setBackground(new java.awt.Color(0, 0, 0));
         lblOperacion.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        lblOperacion.setForeground(new java.awt.Color(255, 255, 255));
+        lblOperacion.setForeground(new java.awt.Color(0, 0, 0));
         lblOperacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOperacion.setText("0");
         jPanel1.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 285, 42));
@@ -212,23 +252,20 @@ private void guardarOperacion(char operacion){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(370, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(365, 365, 365))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(337, 337, 337))))
+                .addGap(151, 151, 151)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
