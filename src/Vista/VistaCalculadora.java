@@ -2,13 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package Vista;
+import Modelo.Calculadora;
+import Controlador.ControlCalculadora;
 
 /**
  *
  * @author UTN
  */
 public class VistaCalculadora extends javax.swing.JFrame {
+        private Calculadora modelo;
+    private ControlCalculadora controlador;
+
+    private String numeroActual = "";
+    private boolean segundoNumero = false;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaCalculadora.class.getName());
 
@@ -17,8 +25,34 @@ public class VistaCalculadora extends javax.swing.JFrame {
      */
     public VistaCalculadora() {
         initComponents();
-    }
+        
+        modelo = new Calculadora();
+    controlador = new ControlCalculadora(modelo);
 
+    lblOperacion.setText("");
+    lblResultado.setText("0");
+}
+    
+
+
+    
+    private void escribirNumero(String numero){
+
+    numeroActual = numeroActual + numero;
+
+    lblResultado.setText(numeroActual);
+    }
+private void guardarOperacion(char operacion){
+
+    controlador.guardarNumero1(numeroActual);
+
+    controlador.guardarOperacion(operacion);
+
+    lblOperacion.setText(numeroActual + " " + operacion);
+
+    numeroActual = "";
+
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,12 +70,12 @@ public class VistaCalculadora extends javax.swing.JFrame {
         btn7 = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
-        btnDivision5 = new javax.swing.JButton();
+        btnResta = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
         btn6 = new javax.swing.JButton();
         btnMultiplicacion = new javax.swing.JButton();
-        btnDivision8 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btnSuma = new javax.swing.JButton();
@@ -61,24 +95,30 @@ public class VistaCalculadora extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.GridLayout(5, 4, 5, 5));
 
         btnCE.setText("CE");
+        btnCE.addActionListener(this::btnCEActionPerformed);
         jPanel2.add(btnCE);
 
         btnAC1.setText("AC");
+        btnAC1.addActionListener(this::btnAC1ActionPerformed);
         jPanel2.add(btnAC1);
 
         btnBorrar.setText(" ⌫");
+        btnBorrar.addActionListener(this::btnBorrarActionPerformed);
         jPanel2.add(btnBorrar);
 
         btnDivision17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnDivision17.setText("÷ ");
+        btnDivision17.addActionListener(this::btnDivision17ActionPerformed);
         jPanel2.add(btnDivision17);
 
         btn7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn7.setText("7");
+        btn7.addActionListener(this::btn7ActionPerformed);
         jPanel2.add(btn7);
 
         btn8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn8.setText("8");
+        btn8.addActionListener(this::btn8ActionPerformed);
         jPanel2.add(btn8);
 
         btn9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -86,67 +126,82 @@ public class VistaCalculadora extends javax.swing.JFrame {
         btn9.addActionListener(this::btn9ActionPerformed);
         jPanel2.add(btn9);
 
-        btnDivision5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnDivision5.setText("÷ ");
-        jPanel2.add(btnDivision5);
+        btnResta.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResta.setText("-");
+        btnResta.addActionListener(this::btnRestaActionPerformed);
+        jPanel2.add(btnResta);
 
         btn4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn4.setText("4");
+        btn4.addActionListener(this::btn4ActionPerformed);
         jPanel2.add(btn4);
 
         btn5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn5.setText("5");
+        btn5.addActionListener(this::btn5ActionPerformed);
         jPanel2.add(btn5);
 
         btn6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn6.setText("6");
+        btn6.addActionListener(this::btn6ActionPerformed);
         jPanel2.add(btn6);
 
         btnMultiplicacion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnMultiplicacion.setText("×");
+        btnMultiplicacion.addActionListener(this::btnMultiplicacionActionPerformed);
         jPanel2.add(btnMultiplicacion);
 
-        btnDivision8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnDivision8.setText("1");
-        jPanel2.add(btnDivision8);
+        btn1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btn1.setText("1");
+        btn1.addActionListener(this::btn1ActionPerformed);
+        jPanel2.add(btn1);
 
         btn2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn2.setText("2");
+        btn2.addActionListener(this::btn2ActionPerformed);
         jPanel2.add(btn2);
 
         btn3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn3.setText("3");
+        btn3.addActionListener(this::btn3ActionPerformed);
         jPanel2.add(btn3);
 
         btnSuma.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSuma.setText("+");
+        btnSuma.addActionListener(this::btnSumaActionPerformed);
         jPanel2.add(btnSuma);
 
         btnSigno.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSigno.setText("+/-");
+        btnSigno.addActionListener(this::btnSignoActionPerformed);
         jPanel2.add(btnSigno);
 
         btn0.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn0.setText("0");
+        btn0.addActionListener(this::btn0ActionPerformed);
         jPanel2.add(btn0);
 
         btnPunto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnPunto.setText(".");
+        btnPunto.addActionListener(this::btnPuntoActionPerformed);
         jPanel2.add(btnPunto);
 
         btnIgual.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnIgual.setText("=");
+        btnIgual.addActionListener(this::btnIgualActionPerformed);
         jPanel2.add(btnIgual);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblOperacion.setBackground(new java.awt.Color(255, 255, 255));
         lblOperacion.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         lblOperacion.setForeground(new java.awt.Color(255, 255, 255));
         lblOperacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOperacion.setText("0");
         jPanel1.add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 285, 42));
 
+        lblResultado.setBackground(new java.awt.Color(255, 255, 255));
         lblResultado.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         lblResultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblResultado.setText("0");
@@ -180,8 +235,142 @@ public class VistaCalculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        // TODO add your handling code here:
+      escribirNumero("9");
     }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+       escribirNumero("0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+      escribirNumero("7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+     escribirNumero("8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+     escribirNumero("4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+     escribirNumero("5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+       escribirNumero("6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+          escribirNumero("1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+      escribirNumero("2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+    escribirNumero("3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
+    if(!numeroActual.contains(".")){
+
+        numeroActual = numeroActual + ".";
+
+        lblResultado.setText(numeroActual);
+
+    }
+
+    }//GEN-LAST:event_btnPuntoActionPerformed
+
+    private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
+       guardarOperacion('+');
+    }//GEN-LAST:event_btnSumaActionPerformed
+
+    private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+         guardarOperacion('-');
+    }//GEN-LAST:event_btnRestaActionPerformed
+
+    private void btnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacionActionPerformed
+          guardarOperacion('×');
+    }//GEN-LAST:event_btnMultiplicacionActionPerformed
+
+    private void btnDivision17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivision17ActionPerformed
+        guardarOperacion('/');  
+    }//GEN-LAST:event_btnDivision17ActionPerformed
+
+    private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
+      try{
+
+        controlador.guardarNumero2(numeroActual);
+
+        double resultado = controlador.calcular();
+
+        lblResultado.setText(String.valueOf(resultado));
+
+        lblOperacion.setText("");
+
+        numeroActual = String.valueOf(resultado);
+
+    }catch(Exception e){
+
+        javax.swing.JOptionPane.showMessageDialog(this, e.getMessage());
+
+    }
+    }//GEN-LAST:event_btnIgualActionPerformed
+
+    private void btnAC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAC1ActionPerformed
+    numeroActual = "";
+
+    controlador.limpiarTodo();
+
+    lblOperacion.setText("");
+
+    lblResultado.setText("0");
+
+
+    }//GEN-LAST:event_btnAC1ActionPerformed
+
+    private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
+      numeroActual = "";
+
+    lblResultado.setText("0");
+    }//GEN-LAST:event_btnCEActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+         if(numeroActual.length() > 0){
+
+        numeroActual = numeroActual.substring(0, numeroActual.length()-1);
+
+        if(numeroActual.length()==0){
+
+            lblResultado.setText("0");
+
+        }else{
+
+            lblResultado.setText(numeroActual);
+
+        }
+
+    }
+    }//GEN-LAST:event_btnBorrarActionPerformed
+
+    private void btnSignoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignoActionPerformed
+        
+    if(numeroActual.length() > 0){
+
+        double numero = Double.parseDouble(numeroActual);
+
+        numero = numero * -1;
+
+        numeroActual = String.valueOf(numero);
+
+        lblResultado.setText(numeroActual);
+
+        }
+    }//GEN-LAST:event_btnSignoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +399,7 @@ public class VistaCalculadora extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
+    private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
@@ -222,11 +412,10 @@ public class VistaCalculadora extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnCE;
     private javax.swing.JButton btnDivision17;
-    private javax.swing.JButton btnDivision5;
-    private javax.swing.JButton btnDivision8;
     private javax.swing.JButton btnIgual;
     private javax.swing.JButton btnMultiplicacion;
     private javax.swing.JButton btnPunto;
+    private javax.swing.JButton btnResta;
     private javax.swing.JButton btnSigno;
     private javax.swing.JButton btnSuma;
     private javax.swing.JPanel jPanel1;
