@@ -5,11 +5,11 @@
 package Controlador;
 
 import Modelo.Calculadora;
+import Controlador.ValorInvalidoException;
 
 public class ControlCalculadora {
 
     private Calculadora modelo;
-
     private String numero1 = "";
     private String numero2 = "";
     private char operacion = ' ';
@@ -30,42 +30,23 @@ public class ControlCalculadora {
         this.operacion = operacion;
     }
 
-    public double calcular() {
+    public double calcular() throws ValorInvalidoException, NumberFormatException {
+        
+        double n1 = Double.parseDouble(numero1);
+        double n2 = Double.parseDouble(numero2);
 
-        double resultado = 0;
-
-        try {
-
-            double n1 = Double.parseDouble(numero1);
-            double n2 = Double.parseDouble(numero2);
-
-            if (operacion == '+') {
-                resultado = modelo.sumar(n1, n2);
-            }
-
-            if (operacion == '-') {
-                resultado = modelo.restar(n1, n2);
-            }
-
-            if (operacion == '*') {
-                resultado = modelo.multiplicar(n1, n2);
-            }
-
-            if (operacion == '/') {
-                resultado = modelo.dividir(n1, n2);
-            }
-
-        } catch (NumberFormatException e) {
-
-            System.out.println("Debe ingresar un número válido.");
-
-        } catch (ValorInvalidoException e) {
-
-            System.out.println(e.getMessage());
-
-        }
-
-        return resultado;
+        return switch (operacion) {
+            case '+' 
+                -> modelo.sumar(n1, n2);
+            case '-' 
+                -> modelo.restar(n1, n2);
+            case '*' 
+                -> modelo.multiplicar(n1, n2);
+            case '/' 
+                -> modelo.dividir(n1, n2);
+            default  
+                -> 0;
+        };
     }
 
     public void limpiarTodo() {
@@ -85,5 +66,4 @@ public class ControlCalculadora {
     public char getOperacion() {
         return operacion;
     }
-
 }
